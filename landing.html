@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>КлиматПро — Ремонт и обслуживание вентиляции и кондиционеров в Москве</title>
+  <meta name="description" content="Профессиональный ремонт и обслуживание вентиляции и кондиционеров любой сложности в Москве. 17 лет опыта. Аварийный выезд 24/7.">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: #1a1a2e;
+      line-height: 1.6;
+      background: #fff;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; }
+    ul { list-style: none; }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 88px 0; }
+    .section--gray { background: #f4f7fb; }
+    .section--dark { background: #0d1b2a; }
+    .text-center { text-align: center; }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: #0096d6;
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: clamp(1.9rem, 4vw, 2.7rem);
+      font-weight: 800;
+      line-height: 1.18;
+      color: #0d1b2a;
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      font-size: 1.02rem;
+      color: #667;
+      max-width: 580px;
+      margin: 0 auto 52px;
+      line-height: 1.7;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      transition: all 0.3s;
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+    .btn-primary {
+      background: #0096d6;
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(0,150,214,0.35);
+    }
+    .btn-primary:hover {
+      background: #007ab8;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(0,150,214,0.5);
+    }
+    .btn-ghost {
+      border-color: rgba(255,255,255,0.55);
+      color: #fff;
+    }
+    .btn-ghost:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: #fff;
+    }
+    .btn-dark {
+      background: #0d1b2a;
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    }
+    .btn-dark:hover { background: #18293e; transform: translateY(-2px); }
+
+    /* Fade-in animation */
+    .fi {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fi.on { opacity: 1; transform: none; }
+    .fi.d1 { transition-delay: 0.10s; }
+    .fi.d2 { transition-delay: 0.20s; }
+    .fi.d3 { transition-delay: 0.30s; }
+    .fi.d4 { transition-delay: 0.40s; }
+    .fi.d5 { transition-delay: 0.50s; }
+    .fi.d6 { transition-delay: 0.60s; }
+
+    /* ══════════════════════════════
+       HEADER
+    ══════════════════════════════ */
+    #hdr {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 20px 0;
+      transition: background 0.4s, box-shadow 0.4s, padding 0.3s;
+    }
+    #hdr.scrolled {
+      background: rgba(13,27,42,0.96);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 2px 24px rgba(0,0,0,0.3);
+      padding: 12px 0;
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+    .nav-logo {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -0.5px;
+      flex-shrink: 0;
+    }
+    .nav-logo span { color: #0096d6; }
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      margin-left: auto;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,0.75);
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #0096d6; }
+    .nav-phone {
+      flex-shrink: 0;
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 9px 20px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-radius: 50px;
+      white-space: nowrap;
+      transition: all 0.3s;
+    }
+    .nav-phone:hover { background: #0096d6; border-color: #0096d6; }
+    .nav-burger {
+      display: none;
+      background: none;
+      border: 2px solid rgba(255,255,255,0.35);
+      color: #fff;
+      width: 42px; height: 42px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-left: auto;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .nav-mobile {
+      position: fixed;
+      left: 0; right: 0;
+      background: rgba(8,18,34,0.98);
+      backdrop-filter: blur(16px);
+      padding: 8px 24px 24px;
+      z-index: 98;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      transform: translateY(-110%);
+      opacity: 0;
+      visibility: hidden;
+      transition: transform 0.32s cubic-bezier(0.4,0,0.2,1),
+                  opacity 0.32s ease,
+                  visibility 0s linear 0.32s;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+    .nav-mobile.open {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+      transition: transform 0.32s cubic-bezier(0.4,0,0.2,1), opacity 0.32s ease;
+    }
+    .nav-mobile a {
+      display: flex;
+      align-items: center;
+      padding: 15px 0;
+      color: rgba(255,255,255,0.82);
+      font-size: 1.05rem;
+      font-weight: 500;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      transition: color 0.2s, padding-left 0.2s;
+    }
+    .nav-mobile a:last-child { border-bottom: none; }
+    .nav-mobile a:hover { color: #0096d6; padding-left: 6px; }
+    .nav-mobile a:active { color: #0096d6; }
+
+    /* ══════════════════════════════
+       HERO
+    ══════════════════════════════ */
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      background: url('https://images.unsplash.com/photo-1726614846573-c1ac2e6161d1?auto=format&fit=crop&w=1920&q=80')
+                  center / cover no-repeat;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(8,18,36,0.93) 0%, rgba(0,50,90,0.78) 100%);
+    }
+    .hero-body {
+      position: relative;
+      z-index: 1;
+      max-width: 740px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 100px 24px 60px;
+    }
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #0096d6;
+      background: rgba(0,150,214,0.12);
+      border: 1px solid rgba(0,150,214,0.28);
+      padding: 6px 18px;
+      border-radius: 50px;
+      margin-bottom: 26px;
+    }
+    .hero-pill-dot {
+      width: 6px; height: 6px;
+      background: #0096d6;
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.2} }
+    .hero-title {
+      font-size: clamp(2.2rem, 5.5vw, 3.8rem);
+      font-weight: 900;
+      line-height: 1.1;
+      color: #fff;
+      letter-spacing: -1.5px;
+      margin-bottom: 22px;
+    }
+    .hero-title em { color: #0096d6; font-style: normal; }
+    .hero-sub {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.68);
+      line-height: 1.7;
+      max-width: 540px;
+      margin: 0 auto 36px;
+    }
+    .hero-btns {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .hero-chips {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 48px;
+    }
+    .hero-chip {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 18px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 50px;
+      color: rgba(255,255,255,0.82);
+      font-size: 0.83rem;
+      font-weight: 500;
+    }
+    .hero-chip-ico { color: #0096d6; }
+
+    /* ══════════════════════════════
+       STATS
+    ══════════════════════════════ */
+    .stats {
+      background: #0096d6;
+      padding: 48px 0;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 24px;
+      text-align: center;
+    }
+    .stat-num {
+      font-size: 2.7rem;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-lbl {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.78);
+      font-weight: 500;
+    }
+
+    /* ══════════════════════════════
+       SERVICES
+    ══════════════════════════════ */
+    .svc-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 22px;
+    }
+    .svc-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 34px 28px;
+      border: 1px solid #e8edf5;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .svc-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #0096d6, #0050a0);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.35s;
+    }
+    .svc-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,150,214,0.14); }
+    .svc-card:hover::after { transform: scaleX(1); }
+    .svc-icon {
+      width: 56px; height: 56px;
+      border-radius: 15px;
+      background: rgba(0,150,214,0.09);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .svc-icon svg {
+      width: 26px; height: 26px;
+      stroke: #0096d6; fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .svc-card h3 { font-size: 1.08rem; font-weight: 700; color: #0d1b2a; margin-bottom: 10px; }
+    .svc-card p  { font-size: 0.88rem; color: #667; line-height: 1.65; }
+
+    /* ══════════════════════════════
+       GALLERY
+    ══════════════════════════════ */
+    .gal-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      grid-auto-rows: 240px;
+      gap: 16px;
+    }
+    .gal-item {
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+    .gal-item.tall { grid-row: span 2; }
+    .gal-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    .gal-item:hover img { transform: scale(1.06); }
+    .gal-cap {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, transparent 55%);
+      display: flex;
+      align-items: flex-end;
+      padding: 18px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .gal-item:hover .gal-cap { opacity: 1; }
+    .gal-cap span {
+      color: #fff;
+      font-size: 0.82rem;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    /* ══════════════════════════════
+       ABOUT / WHY US
+    ══════════════════════════════ */
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: center;
+    }
+    .about-img-wrap {
+      position: relative;
+      border-radius: 22px;
+      overflow: hidden;
+    }
+    .about-img-wrap img { width: 100%; height: 500px; object-fit: cover; }
+    .about-badge {
+      position: absolute;
+      bottom: 24px; left: 24px;
+      background: #fff;
+      border-radius: 16px;
+      padding: 16px 22px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    }
+    .about-badge-num  { font-size: 2rem; font-weight: 900; color: #0096d6; line-height: 1; }
+    .about-badge-text { font-size: 0.78rem; color: #888; margin-top: 3px; }
+    .about-text .tag  { text-align: left; }
+    .about-text .section-title { text-align: left; }
+    .about-lead {
+      font-size: 0.98rem;
+      color: #555;
+      line-height: 1.75;
+      margin-bottom: 32px;
+    }
+    .feat-list { display: grid; gap: 22px; }
+    .feat {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .feat-ico {
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      background: rgba(0,150,214,0.09);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .feat-ico svg {
+      width: 22px; height: 22px;
+      stroke: #0096d6; fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .feat h4 { font-size: 0.93rem; font-weight: 700; color: #0d1b2a; margin-bottom: 3px; }
+    .feat p  { font-size: 0.83rem; color: #667; line-height: 1.55; }
+
+    /* ══════════════════════════════
+       REVIEWS
+    ══════════════════════════════ */
+    .rev-grid {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 22px;
+    }
+    .rev-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 30px;
+      border: 1px solid #e8edf5;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .rev-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,150,214,0.12); }
+    .rev-stars { color: #f59e0b; font-size: 1rem; letter-spacing: 2px; margin-bottom: 14px; }
+    .rev-text {
+      font-size: 0.91rem;
+      color: #444;
+      line-height: 1.75;
+      margin-bottom: 22px;
+      position: relative;
+      padding-left: 22px;
+    }
+    .rev-text::before {
+      content: '"';
+      position: absolute;
+      left: 0; top: -4px;
+      font-size: 2.8rem;
+      color: #0096d6;
+      line-height: 1;
+      font-family: Georgia, serif;
+    }
+    .rev-author { display: flex; align-items: center; gap: 13px; }
+    .rev-photo {
+      width: 50px; height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #e0f0fa;
+      flex-shrink: 0;
+    }
+    .rev-name { font-weight: 700; font-size: 0.92rem; color: #0d1b2a; }
+    .rev-role { font-size: 0.78rem; color: #999; margin-top: 2px; }
+
+    /* ══════════════════════════════
+       CTA SECTION
+    ══════════════════════════════ */
+    .cta-sec {
+      background: linear-gradient(135deg, #0a1628 0%, #083352 100%);
+      padding: 90px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-sec::before {
+      content: '';
+      position: absolute;
+      width: 700px; height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,150,214,0.11) 0%, transparent 70%);
+      top: -300px; right: -200px;
+      pointer-events: none;
+    }
+    .cta-sec::after {
+      content: '';
+      position: absolute;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,150,214,0.07) 0%, transparent 70%);
+      bottom: -200px; left: -150px;
+      pointer-events: none;
+    }
+    .cta-sec .container { position: relative; z-index: 1; }
+    .cta-sec .section-title { color: #fff; }
+    .cta-sec .section-sub   { color: rgba(255,255,255,0.6); margin-bottom: 0; }
+    .cta-contacts {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 36px;
+      margin-top: 44px;
+      flex-wrap: wrap;
+    }
+    .cta-phone {
+      font-size: 2.1rem;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -1px;
+      transition: color 0.2s;
+    }
+    .cta-phone:hover { color: #0096d6; }
+    .cta-sep { color: rgba(255,255,255,0.3); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; }
+    .cta-info-row {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 44px;
+    }
+    .cta-chip {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 10px 18px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 50px;
+      color: rgba(255,255,255,0.8);
+      font-size: 0.83rem;
+    }
+    .cta-chip-ico { color: #0096d6; }
+
+    /* ══════════════════════════════
+       FOOTER
+    ══════════════════════════════ */
+    .footer {
+      background: #060e1a;
+      padding: 60px 0 28px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.3fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+    .footer-logo { font-size: 1.45rem; font-weight: 900; color: #fff; margin-bottom: 14px; }
+    .footer-logo span { color: #0096d6; }
+    .footer-desc { font-size: 0.84rem; color: rgba(255,255,255,0.38); line-height: 1.75; }
+    .footer-head {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 16px;
+    }
+    .footer-links { display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a { font-size: 0.86rem; color: rgba(255,255,255,0.5); transition: color 0.2s; }
+    .footer-links a:hover { color: #0096d6; }
+    .footer-contact { margin-bottom: 12px; display: flex; gap: 10px; }
+    .footer-contact-ico { color: #0096d6; font-size: 0.88rem; margin-top: 3px; flex-shrink: 0; }
+    .footer-contact-val { font-size: 0.86rem; color: rgba(255,255,255,0.5); line-height: 1.5; }
+    .footer-contact-val a { color: rgba(255,255,255,0.7); transition: color 0.2s; }
+    .footer-contact-val a:hover { color: #0096d6; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.22); }
+    .footer-legal { font-size: 0.78rem; color: rgba(255,255,255,0.22); }
+    .footer-legal a { color: rgba(255,255,255,0.32); transition: color 0.2s; }
+    .footer-legal a:hover { color: rgba(255,255,255,0.6); }
+
+    /* ══════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════ */
+
+    /* ── Tablet (≤1024px) ── */
+    @media (max-width: 1024px) {
+      .svc-grid      { grid-template-columns: repeat(2,1fr); }
+      .about-inner   { grid-template-columns: 1fr; gap: 40px; }
+      .about-img-wrap img { height: 380px; }
+      .footer-grid   { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+
+    /* ── Mobile (≤768px) ── */
+    @media (max-width: 768px) {
+      .container { padding: 0 18px; }
+      .section   { padding: 56px 0; }
+      .section-sub { font-size: 0.95rem; margin-bottom: 36px; }
+
+      /* Header */
+      #hdr { padding: 14px 0; }
+      #hdr.scrolled { padding: 10px 0; }
+      .nav-links, .nav-phone { display: none; }
+      .nav-burger { display: inline-flex; }
+
+      /* Hero */
+      .hero-body { padding: 88px 18px 52px; }
+      .hero-btns {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .hero-btns .btn { justify-content: center; text-align: center; min-height: 52px; }
+      .hero-chips {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        margin-top: 32px;
+      }
+      .hero-chip { justify-content: center; font-size: 0.78rem; padding: 9px 10px; }
+
+      /* Stats */
+      .stats { padding: 36px 0; }
+      .stats-grid { grid-template-columns: repeat(2,1fr); gap: 18px 16px; }
+      .stat-num { font-size: 2.2rem; }
+      .stat-lbl { font-size: 0.8rem; }
+
+      /* Services */
+      .svc-grid { grid-template-columns: 1fr; gap: 14px; }
+      .svc-card { padding: 26px 22px; }
+
+      /* Gallery */
+      .gal-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: 160px;
+        gap: 10px;
+      }
+      .gal-item.tall { grid-row: span 1; }
+      .gal-cap { padding: 12px; }
+      .gal-cap span { font-size: 0.76rem; }
+
+      /* About */
+      .about-inner   { grid-template-columns: 1fr; gap: 32px; }
+      .about-img-wrap img { height: 280px; }
+      .about-badge   { bottom: 14px; left: 14px; padding: 12px 16px; }
+      .about-badge-num  { font-size: 1.6rem; }
+      .about-badge-text { font-size: 0.72rem; }
+      .about-lead    { font-size: 0.93rem; }
+      .feat h4       { font-size: 0.9rem; }
+      .feat p        { font-size: 0.82rem; }
+
+      /* Reviews */
+      .rev-grid { grid-template-columns: 1fr; gap: 14px; }
+      .rev-card { padding: 22px 18px; }
+      .rev-text { font-size: 0.88rem; }
+
+      /* CTA */
+      .cta-sec { padding: 64px 0; }
+      .cta-contacts {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        margin-top: 32px;
+      }
+      .cta-phone { font-size: 1.75rem; }
+      .cta-info-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        margin-top: 32px;
+      }
+      .cta-chip { width: 100%; max-width: 340px; justify-content: center; }
+
+      /* Footer */
+      .footer { padding: 44px 0 20px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 28px; margin-bottom: 28px; }
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+      }
+    }
+
+    /* ── Small mobile (≤480px) ── */
+    @media (max-width: 480px) {
+      .container { padding: 0 16px; }
+
+      /* Hero */
+      .hero-title  { font-size: 1.85rem; letter-spacing: -0.5px; }
+      .hero-sub    { font-size: 0.95rem; }
+      .hero-pill   { font-size: 0.65rem; padding: 5px 13px; }
+      .hero-chips  { grid-template-columns: 1fr 1fr; }
+      .hero-chip   { font-size: 0.74rem; padding: 8px 8px; }
+      .hero-btns .btn { padding: 14px 20px; }
+
+      /* Stats */
+      .stat-num { font-size: 1.9rem; }
+      .stat-lbl { font-size: 0.75rem; }
+
+      /* Gallery – single column */
+      .gal-grid { grid-template-columns: 1fr; grid-auto-rows: 220px; }
+
+      /* Services */
+      .svc-card  { padding: 22px 18px; }
+      .svc-icon  { width: 48px; height: 48px; }
+
+      /* About */
+      .about-img-wrap img { height: 240px; }
+      .feat-ico  { width: 38px; height: 38px; border-radius: 10px; }
+      .feat-ico svg { width: 18px; height: 18px; }
+
+      /* Reviews */
+      .rev-text  { font-size: 0.85rem; }
+      .rev-name  { font-size: 0.88rem; }
+
+      /* Section titles */
+      .section-title { font-size: 1.65rem; }
+      .cta-phone { font-size: 1.5rem; }
+
+      /* Buttons */
+      .btn { padding: 13px 24px; font-size: 0.9rem; }
+
+      /* Footer */
+      .footer-grid { gap: 24px; }
+    }
+
+    /* ── Extra small (≤360px) ── */
+    @media (max-width: 360px) {
+      .hero-title { font-size: 1.65rem; }
+      .hero-chips { grid-template-columns: 1fr; }
+      .stats-grid { gap: 14px 10px; }
+      .stat-num   { font-size: 1.75rem; }
+      .section-title { font-size: 1.5rem; }
+    }
+
+    /* ── Floating call button (mobile only) ── */
+    .fab {
+      position: fixed;
+      bottom: 24px; right: 20px;
+      width: 60px; height: 60px;
+      border-radius: 50%;
+      background: #0096d6;
+      color: #fff;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(0,150,214,0.55), 0 0 0 0 rgba(0,150,214,0.3);
+      z-index: 90;
+      opacity: 0;
+      transform: scale(0.6);
+      transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), opacity 0.3s ease, box-shadow 0.3s;
+      animation: fab-ring 2.4s ease-out infinite;
+    }
+    .fab.show { opacity: 1; transform: scale(1); }
+    .fab:hover { background: #007ab8; box-shadow: 0 8px 28px rgba(0,150,214,0.7); }
+    .fab:active { transform: scale(0.92); }
+    @keyframes fab-ring {
+      0%   { box-shadow: 0 4px 20px rgba(0,150,214,0.55), 0 0 0 0 rgba(0,150,214,0.35); }
+      70%  { box-shadow: 0 4px 20px rgba(0,150,214,0.55), 0 0 0 16px rgba(0,150,214,0); }
+      100% { box-shadow: 0 4px 20px rgba(0,150,214,0.55), 0 0 0 0 rgba(0,150,214,0); }
+    }
+    @media (max-width: 768px) { .fab { display: flex; } }
+
+    /* ── Hover only for devices that support it ── */
+    @media (hover: none) {
+      .svc-card:hover,
+      .rev-card:hover,
+      .gal-item:hover img { transform: none; }
+      .svc-card:hover { box-shadow: 0 2px 16px rgba(0,0,0,0.05); }
+      .gal-cap { opacity: 1; background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 50%); }
+      .btn-primary:hover,
+      .btn-dark:hover { transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════ HEADER ════════ -->
+<header id="hdr">
+  <nav class="nav container">
+    <div class="nav-logo">Климат<span>Про</span></div>
+    <ul class="nav-links">
+      <li><a href="#services">Услуги</a></li>
+      <li><a href="#gallery">Оборудование</a></li>
+      <li><a href="#about">О компании</a></li>
+      <li><a href="#reviews">Отзывы</a></li>
+      <li><a href="#contact">Контакты</a></li>
+    </ul>
+    <a href="tel:+74951234567" class="nav-phone">+7 (495) 123-45-67</a>
+    <button class="nav-burger" id="burger" aria-label="Меню">
+      <svg width="20" height="16" viewBox="0 0 20 16" fill="none" stroke="white" stroke-width="2" stroke-linecap="round">
+        <path d="M0 2h20M0 8h20M0 14h20"/>
+      </svg>
+    </button>
+  </nav>
+</header>
+<div class="nav-mobile" id="mobileNav">
+  <a href="#services">Услуги</a>
+  <a href="#gallery">Оборудование</a>
+  <a href="#about">О компании</a>
+  <a href="#reviews">Отзывы</a>
+  <a href="#contact">Контакты</a>
+  <a href="tel:+74951234567" style="color:#0096d6;font-weight:700;margin-top:6px">+7 (495) 123-45-67</a>
+</div>
+
+<!-- ════════ HERO ════════ -->
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-body">
+    <div class="hero-pill">
+      <div class="hero-pill-dot"></div>
+      Профессиональный сервис · Москва
+    </div>
+    <h1 class="hero-title">
+      Ремонт и обслуживание<br>
+      <em>вентиляции</em> и <em>кондиционеров</em>
+    </h1>
+    <p class="hero-sub">
+      Решаем задачи любой сложности — от бытового сплит-кондиционера до промышленных
+      климатических комплексов. Диагностика нетривиальных неисправностей — наша специализация.
+    </p>
+    <div class="hero-btns">
+      <a href="tel:+74951234567" class="btn btn-primary">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+          <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10 21 3 14 3 5c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/>
+        </svg>
+        Вызвать мастера
+      </a>
+      <a href="#services" class="btn btn-ghost">Наши услуги</a>
+    </div>
+    <div class="hero-chips">
+      <div class="hero-chip"><span class="hero-chip-ico">✓</span> Выезд за 2 часа</div>
+      <div class="hero-chip"><span class="hero-chip-ico">✓</span> Любое оборудование</div>
+      <div class="hero-chip"><span class="hero-chip-ico">✓</span> Гарантия 12 месяцев</div>
+      <div class="hero-chip"><span class="hero-chip-ico">✓</span> Работаем 24/7</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ STATS ════════ -->
+<section class="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div>
+        <div class="stat-num" data-to="17" data-sfx="+">0</div>
+        <div class="stat-lbl">лет на рынке</div>
+      </div>
+      <div>
+        <div class="stat-num" data-to="3500" data-sfx="+">0</div>
+        <div class="stat-lbl">выполненных работ</div>
+      </div>
+      <div>
+        <div class="stat-num" data-to="850" data-sfx="+">0</div>
+        <div class="stat-lbl">постоянных клиентов</div>
+      </div>
+      <div>
+        <div class="stat-num" data-to="97" data-sfx="%">0</div>
+        <div class="stat-lbl">довольных клиентов</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ SERVICES ════════ -->
+<section class="section" id="services">
+  <div class="container text-center">
+    <div class="tag">Что мы делаем</div>
+    <h2 class="section-title fi">Полный спектр услуг<br>по климатическому оборудованию</h2>
+    <p class="section-sub fi">Беремся за задачи любой сложности — от планового ТО до диагностики нетривиальных поломок промышленных систем.</p>
+
+    <div class="svc-grid">
+
+      <div class="svc-card fi d1">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="13" rx="2"/><path d="M8 21h8M12 16v5"/><path d="M7 8h10M7 12h6"/></svg>
+        </div>
+        <h3>Ремонт кондиционеров</h3>
+        <p>Сплит-системы, мультисплиты, кассетные, канальные, колонные модели. Все производители: Daikin, Mitsubishi, Fujitsu, LG, Samsung, Haier, MDV и другие.</p>
+      </div>
+
+      <div class="svc-card fi d2">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
+        </div>
+        <h3>Техническое обслуживание</h3>
+        <p>Чистка фильтров, теплообменников и дренажа. Дозаправка хладагентом. Сезонное ТО и регламентное обслуживание по договору для юридических лиц.</p>
+      </div>
+
+      <div class="svc-card fi d3">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/><path d="M9 17l3 3 3-3M12 12v8"/></svg>
+        </div>
+        <h3>Ремонт вентиляции</h3>
+        <p>Приточно-вытяжные установки, рекуператоры тепла, центральные кондиционеры, чиллеры и фанкойлы. Промышленные и коммерческие климатические комплексы.</p>
+      </div>
+
+      <div class="svc-card fi d4">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+        </div>
+        <h3>Диагностика сложных неисправностей</h3>
+        <p>Специализируемся на нестандартных случаях — когда другие сервисы отказывают. Находим первопричину, а не маскируем симптомы.</p>
+      </div>
+
+      <div class="svc-card fi d5">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <h3>Аварийный ремонт 24/7</h3>
+        <p>Выезд в течение 2 часов по Москве и Подмосковью в любое время суток. Круглосуточная диспетчерская служба. Работаем в праздники и выходные.</p>
+      </div>
+
+      <div class="svc-card fi d6">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <h3>Монтаж и пуско-наладка</h3>
+        <p>Профессиональный монтаж систем кондиционирования и вентиляции. Пуск и настройка оборудования. Сдача в эксплуатацию с полным пакетом документов.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════ GALLERY ════════ -->
+<section class="section section--gray" id="gallery">
+  <div class="container text-center">
+    <div class="tag">Наша специализация</div>
+    <h2 class="section-title fi">Оборудование, с которым мы работаем</h2>
+    <p class="section-sub fi">От настенного кондиционера до многотонного промышленного чиллера — мы знаем каждую систему изнутри.</p>
+
+    <div class="gal-grid">
+
+      <div class="gal-item tall fi d1">
+        <img src="https://images.unsplash.com/photo-1651474738521-efacfb201039?auto=format&fit=crop&w=600&q=80"
+             alt="Сервисный центр КлиматПро" loading="lazy">
+        <div class="gal-cap"><span>Наш сервисный центр</span></div>
+      </div>
+
+      <div class="gal-item fi d2">
+        <img src="https://images.unsplash.com/photo-1700124113583-81aa99ea2aa2?auto=format&fit=crop&w=600&q=80"
+             alt="Настенный кондиционер" loading="lazy">
+        <div class="gal-cap"><span>Настенные сплит-системы</span></div>
+      </div>
+
+      <div class="gal-item fi d3">
+        <img src="https://images.unsplash.com/photo-1667983453881-4992fe86ab1b?auto=format&fit=crop&w=600&q=80"
+             alt="Внешний блок кондиционера" loading="lazy">
+        <div class="gal-cap"><span>Внешние блоки и мультизональные системы</span></div>
+      </div>
+
+      <div class="gal-item fi d4">
+        <img src="https://images.unsplash.com/photo-1708705261211-b2a244a811dc?auto=format&fit=crop&w=600&q=80"
+             alt="Промышленная вентиляция" loading="lazy">
+        <div class="gal-cap"><span>Промышленные приточно-вытяжные установки</span></div>
+      </div>
+
+      <div class="gal-item fi d5">
+        <img src="https://images.unsplash.com/photo-1615309662243-70f6df917b59?auto=format&fit=crop&w=600&q=80"
+             alt="Вентиляционные воздуховоды" loading="lazy">
+        <div class="gal-cap"><span>Воздуховоды и вентиляционные сети</span></div>
+      </div>
+
+      <div class="gal-item fi d6">
+        <img src="https://images.unsplash.com/photo-1566917064245-1c6bff30dbf1?auto=format&fit=crop&w=600&q=80"
+             alt="Промышленная климатическая система" loading="lazy">
+        <div class="gal-cap"><span>Промышленные климатические комплексы</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════ ABOUT / WHY US ════════ -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="about-inner">
+
+      <div class="about-img-wrap fi">
+        <img src="https://images.unsplash.com/photo-1601993198415-19d86ae28424?auto=format&fit=crop&w=800&q=80"
+             alt="Мастерская КлиматПро" loading="lazy">
+        <div class="about-badge">
+          <div class="about-badge-num">17+</div>
+          <div class="about-badge-text">лет профессионального опыта</div>
+        </div>
+      </div>
+
+      <div class="about-text fi d2">
+        <div class="tag">Почему выбирают нас</div>
+        <h2 class="section-title">Решаем задачи,<br>с которыми не справились другие</h2>
+        <p class="about-lead">
+          Наши специалисты прошли обучение и сертификацию у ведущих производителей климатического
+          оборудования. За 17 лет мы накопили опыт работы с сотнями моделей и тысячами нестандартных
+          ситуаций. Именно сложные случаи — наша специализация.
+        </p>
+
+        <div class="feat-list">
+          <div class="feat">
+            <div class="feat-ico">
+              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
+              <h4>Любое оборудование любого производителя</h4>
+              <p>Daikin, Mitsubishi Electric, Fujitsu, LG, Samsung, Haier, MDV, Systemair, Ostberg, Carrier и любые другие бренды, включая редкое промышленное оборудование.</p>
+            </div>
+          </div>
+          <div class="feat">
+            <div class="feat-ico">
+              <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v3h3"/></svg>
+            </div>
+            <div>
+              <h4>Находим первопричину, а не маскируем симптомы</h4>
+              <p>Глубокая диагностика позволяет выявлять корень неисправности и устранять её навсегда, а не делать временный ремонт.</p>
+            </div>
+          </div>
+          <div class="feat">
+            <div class="feat-ico">
+              <svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            </div>
+            <div>
+              <h4>Гарантия 12 месяцев на все виды работ</h4>
+              <p>Используем только оригинальные и сертифицированные комплектующие. На установленные запчасти гарантия 24 месяца.</p>
+            </div>
+          </div>
+          <div class="feat">
+            <div class="feat-ico">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <h4>Выезд в день обращения, аварийно — за 2 часа</h4>
+              <p>Диспетчерская служба работает круглосуточно. Аварийный выезд по Москве — не позднее 2 часов после вашего звонка.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════ REVIEWS ════════ -->
+<section class="section section--gray" id="reviews">
+  <div class="container text-center">
+    <div class="tag">Отзывы клиентов</div>
+    <h2 class="section-title fi">Нам доверяют и рекомендуют</h2>
+    <p class="section-sub fi">Реальные истории — от домашних кондиционеров до сложных промышленных комплексов.</p>
+
+    <div class="rev-grid">
+
+      <div class="rev-card fi d1">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">
+          Обратились с нетривиальной проблемой — наша приточно-вытяжная установка Systemair начала давать
+          сбои после 7 лет работы. Два других сервиса отказались браться или предлагали полную замену блока.
+          Ребята из КлиматПро поставили точный диагноз за один визит, а через три дня установка работает
+          как новая. Профессионализм высшего уровня!
+        </p>
+        <div class="rev-author">
+          <img class="rev-photo" src="https://randomuser.me/api/portraits/men/32.jpg" alt="Сергей К.">
+          <div>
+            <div class="rev-name">Сергей Каверин</div>
+            <div class="rev-role">Директор строительной компании</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rev-card fi d2">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">
+          Обслуживаем у них офисные кондиционеры уже четыре года подряд. Всегда приезжают строго вовремя,
+          работают чисто и аккуратно, объясняют всё понятным языком. После каждого ТО кондиционеры работают
+          заметно тише и холодят заметно лучше. Очень рекомендую для корпоративного обслуживания!
+        </p>
+        <div class="rev-author">
+          <img class="rev-photo" src="https://randomuser.me/api/portraits/women/44.jpg" alt="Елена В.">
+          <div>
+            <div class="rev-name">Елена Воробьёва</div>
+            <div class="rev-role">Офис-менеджер, компания «Медиасфера»</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rev-card fi d3">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">
+          В разгар лета вышел из строя промышленный чиллер. КлиматПро приехали в тот же вечер, за ночь
+          провели диагностику и нашли крайне редкую неисправность в системе управления — то, что сами
+          представители производителя не смогли объяснить. Отремонтировали за двое суток. Ресторан
+          не потерял ни одного рабочего часа!
+        </p>
+        <div class="rev-author">
+          <img class="rev-photo" src="https://randomuser.me/api/portraits/men/67.jpg" alt="Дмитрий Ш.">
+          <div>
+            <div class="rev-name">Дмитрий Шумаков</div>
+            <div class="rev-role">Владелец ресторана «Северная терраса»</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rev-card fi d4">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">
+          Кондиционер начал течь и издавать странные звуки — думала, придётся менять. Мастер Андрей
+          приехал через полтора часа после звонка, аккуратно всё разобрал, нашёл забитый дренаж
+          и изношенный подшипник. Починил быстро, а итоговая стоимость оказалась ниже первоначальной
+          оценки. Честные и внимательные профессионалы!
+        </p>
+        <div class="rev-author">
+          <img class="rev-photo" src="https://randomuser.me/api/portraits/women/28.jpg" alt="Ольга М.">
+          <div>
+            <div class="rev-name">Ольга Мищенко</div>
+            <div class="rev-role">Частный клиент, ЖК «Алые паруса»</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════ CTA / CONTACT ════════ -->
+<section class="cta-sec" id="contact">
+  <div class="container">
+    <div class="tag" style="color:#0096d6">Свяжитесь с нами</div>
+    <h2 class="section-title fi">Есть проблема с климатом?<br>Решим её сегодня.</h2>
+    <p class="section-sub fi">Бесплатная консультация по телефону. Выезд мастера в день обращения.</p>
+
+    <div class="cta-contacts">
+      <a href="tel:+74951234567" class="cta-phone">+7 (495) 123-45-67</a>
+      <span class="cta-sep">или</span>
+      <a href="mailto:info@klimatpro.ru" class="btn btn-primary">Написать на почту</a>
+    </div>
+
+    <div class="cta-info-row">
+      <div class="cta-chip">
+        <span class="cta-chip-ico">📍</span>
+        г. Москва, ул. Автозаводская, д.&nbsp;23, стр.&nbsp;2
+      </div>
+      <div class="cta-chip">
+        <span class="cta-chip-ico">⏰</span>
+        Пн–Вс: 08:00–22:00 · Аварийно: 24/7
+      </div>
+      <div class="cta-chip">
+        <span class="cta-chip-ico">✉</span>
+        info@klimatpro.ru
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ FOOTER ════════ -->
+<!-- Floating call button (mobile) -->
+<a href="tel:+74951234567" class="fab" id="fab" aria-label="Позвонить">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10 21 3 14 3 5c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/>
+  </svg>
+</a>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <div>
+        <div class="footer-logo">Климат<span>Про</span></div>
+        <p class="footer-desc">
+          Профессиональный ремонт и обслуживание систем вентиляции и кондиционирования
+          в Москве с 2009 года. Специализируемся на сложных и нестандартных случаях.
+        </p>
+      </div>
+
+      <div>
+        <div class="footer-head">Услуги</div>
+        <div class="footer-links">
+          <a href="#services">Ремонт кондиционеров</a>
+          <a href="#services">Техническое обслуживание</a>
+          <a href="#services">Ремонт вентиляции</a>
+          <a href="#services">Сложная диагностика</a>
+          <a href="#services">Аварийный ремонт</a>
+          <a href="#services">Монтаж и пуско-наладка</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-head">Компания</div>
+        <div class="footer-links">
+          <a href="#about">О компании</a>
+          <a href="#gallery">Оборудование</a>
+          <a href="#reviews">Отзывы клиентов</a>
+          <a href="#contact">Контакты</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-head">Контакты</div>
+        <div class="footer-contact">
+          <span class="footer-contact-ico">📍</span>
+          <div class="footer-contact-val">г. Москва,<br>ул. Автозаводская, д. 23, стр. 2</div>
+        </div>
+        <div class="footer-contact">
+          <span class="footer-contact-ico">📞</span>
+          <div class="footer-contact-val">
+            <a href="tel:+74951234567">+7 (495) 123-45-67</a>
+          </div>
+        </div>
+        <div class="footer-contact">
+          <span class="footer-contact-ico">✉</span>
+          <div class="footer-contact-val">
+            <a href="mailto:info@klimatpro.ru">info@klimatpro.ru</a>
+          </div>
+        </div>
+        <div class="footer-contact">
+          <span class="footer-contact-ico">⏰</span>
+          <div class="footer-contact-val">Пн–Вс: 08:00–22:00<br>Аварийный выезд: 24/7</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2009–2026 КлиматПро. Все права защищены.</div>
+      <div class="footer-legal">
+        <a href="#">Политика конфиденциальности</a>&nbsp;·&nbsp;<a href="#">Условия использования</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Sticky header
+  const hdr = document.getElementById('hdr');
+  const mob = document.getElementById('mobileNav');
+
+  function positionMobNav() {
+    mob.style.top = hdr.offsetHeight + 'px';
+  }
+  positionMobNav();
+
+  addEventListener('scroll', () => {
+    hdr.classList.toggle('scrolled', scrollY > 60);
+    positionMobNav();
+  }, { passive: true });
+
+  // Mobile menu
+  const burger = document.getElementById('burger');
+
+  function closeMob() {
+    mob.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
+  }
+  function openMob() {
+    positionMobNav();
+    mob.classList.add('open');
+    burger.setAttribute('aria-expanded', 'true');
+  }
+
+  burger.addEventListener('click', () => {
+    mob.classList.contains('open') ? closeMob() : openMob();
+  });
+
+  mob.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMob));
+
+  // Close mobile menu on outside tap
+  document.addEventListener('click', e => {
+    if (mob.classList.contains('open') && !mob.contains(e.target) && !burger.contains(e.target)) {
+      closeMob();
+    }
+  });
+
+  // Resize: close menu if viewport widens
+  addEventListener('resize', () => {
+    if (window.innerWidth > 768) closeMob();
+    positionMobNav();
+  }, { passive: true });
+
+  // Floating call button: show after scrolling half the hero
+  const fab = document.getElementById('fab');
+  if (fab) {
+    addEventListener('scroll', () => {
+      fab.classList.toggle('show', scrollY > window.innerHeight * 0.55);
+    }, { passive: true });
+  }
+
+  // Fade-in on scroll
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fi').forEach(el => io.observe(el));
+
+  // Animated counters
+  const cio = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      const target = +el.dataset.to;
+      const sfx = el.dataset.sfx || '';
+      const dur = 1600;
+      const inc = target / (dur / 16);
+      let n = 0;
+      const t = setInterval(() => {
+        n = Math.min(n + inc, target);
+        el.textContent = Math.floor(n).toLocaleString('ru') + sfx;
+        if (n >= target) clearInterval(t);
+      }, 16);
+      cio.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('[data-to]').forEach(el => cio.observe(el));
+</script>
+
+</body>
+</html>
